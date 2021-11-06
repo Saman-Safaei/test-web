@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-sm navbar-dark py-2 sticky-top shadow-sm" dir="ltr" style="background-color: #291f52">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('site.index') }}"><img src="{{ url_for('static', filename="img/flask_icon_nav.png") }}" alt="flask_nav_icon" style="width: 62px;"></a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav me-auto" dir="rtl">
+                <a class="nav-link" href="{{ url_for('users.dashboard') }}"><i class="fas fa-user"></i><span> حساب کاربری</span></a>
+                <a class="nav-link" href="{{ url_for('site.category', category='tutorial') }}">آموزش ها</a>
+                <a class="nav-link" href="{{ url_for('site.category', category='news') }}">بخش خبری</a>
+                <a class="nav-link" href="#">درباره ما</a>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,12 @@
+
+{% macro generate_search_bar(search_form) %}
+    <div class="container-fluid">
+        <form action="{{ url_for('site.search') }}" method="post" class="bg-light p-2 border-radius-8px shadow-sm mb-3">
+            <div class="form-outline mb-2">
+                {{ search_form.search_field(class='form-control') }}
+                {{ search_form.search_field.label(class='form-label') }}
+            </div>
+            {{ search_form.submit_field(class='btn btn-primary btn-block') }}
+        </form>
+    </div>
+{% endmacro %}

@@ -1,0 +1,30 @@
+{% macro render_field_with_errors(field, div_class="", label_class="", ul_class="", li_class="", label_name="") %}
+<div class="mb-2">
+  <div class="{{ div_class }}">
+      {{ field(**kwargs)|safe }}  <label class="{{ label_class }}" for="{{ field.id }}">{{ label_name }}</label>
+  </div>
+  {% if field.errors %}
+      <ul class="{{ ul_class }}">
+      {% for error in field.errors %}
+        <li class="{{ li_class }} small">{{ error }}</li>
+      {% endfor %}
+      </ul>
+  {% endif %}
+</div>
+{% endmacro %}
+
+{% macro render_field(field, div_class="") %}
+  <div class="{{ div_class }}">{{ field(**kwargs)|safe }}</div>
+{% endmacro %}
+
+{% macro render_field_errors(field) %}
+  <p>
+    {% if field and field.errors %}
+      <ul>
+      {% for error in field.errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </p>
+{% endmacro %}

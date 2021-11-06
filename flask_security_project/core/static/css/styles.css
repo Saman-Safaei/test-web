@@ -1,0 +1,96 @@
+p, a, button, input, ul, li, div{
+	font-family: Shabnam, serif;
+}
+h1, h2, h3, h4, h5, h6, label {
+    font-family: Yekan, serif;
+}
+
+.error{
+    color: #721c24;
+    background-color: #f5c6cb;
+}
+
+
+.footer-setup{
+    background-color: #291f52;
+    border-radius: 16px 16px 0 0;
+}
+
+.border-radius-16px{
+    border-radius: 16px;
+}
+.border-radius-8px{
+    border-radius: 8px;
+}
+
+.card-header-color{
+    background: #f9f9f9;
+}
+
+.card-mb{
+    margin-bottom: 16px;
+}
+
+.center{
+    vertical-align: middle;
+}
+
+.btn-primary{
+    background-color: #3b1c7d;
+}
+.btn-primary:hover, .btn-primary:focus{
+    background-color: #341a6c;
+}
+.btn-primary:active{
+    background-color: #2a135b;
+}
+
+.btn-outline-primary, .btn-outline-primary:hover , .btn-outline-primary:active, .btn-outline-primary:focus{
+    border-color: #3b1c7d;
+    color: #3b1c7d;;
+}
+
+.btn-floating{
+    background-color: #5b10d0;
+}
+.btn-floating:hover, .btn-floating:focus{
+    background-color: #761bff;
+}
+.btn-floating:active{
+    background-color: #761bff;
+}
+
+/* This is for form input */
+
+.form-outline .form-control:focus~.form-notch .form-notch-leading {
+    border-top: .125rem solid #6e02b1;
+    border-bottom: .125rem solid #6e02b1;
+    border-right: .125rem solid #6e02b1;
+}
+ .form-outline .form-control:focus~.form-notch .form-notch-middle {
+    border-bottom: .125rem solid;
+    border-color: #6e02b1;
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-trailing {
+    border-color: currentcolor currentcolor currentcolor #6e02b1;
+    border-bottom: .125rem solid #6e02b1;
+    border-left: .125rem solid #6e02b1;
+    border-top: .125rem solid #6e02b1;
+}
+
+.form-outline .form-control:focus~.form-label {
+    color: #6e02b1;
+}
+
+.form-check-input[type=checkbox]:checked{
+    background-color: #761bff;
+    border-color: #590fc9;
+}
+
+.form-check-input[type=checkbox]:checked:focus{
+    background-color: #761bff;
+    border-color: #590fc9;
+}
+
+/* {END} This is for form input */

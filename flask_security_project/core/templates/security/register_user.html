@@ -1,0 +1,51 @@
+{% extends "security/base.html" %}
+{% from "security/_macros.html" import render_field_with_errors, render_field %}
+
+{% block title %}ثبت نام - FlaskFa{% endblock %}
+{% block body_attribs %}
+    style="background-image: url({{ url_for('static', filename='img/form_background.jpg') }});background-repeat:
+    no-repeat;background-attachment: fixed;
+    background-size: cover;"
+{% endblock %}
+{% block content %}
+    <div class="row gx-0 justify-content-center align-items-center" style="height: 100vh;">
+        <div class="col-sm-10 col-md-7 col-lg-6 col-xl-5 col-xxl-4 p-5">
+            {% include "security/_messages.html" %}
+            <form action="{{ url_for_security('register') }}" method="POST" name="register_user_form"
+                  class="bg-light border-radius-8px shadow p-3">
+                {{ register_user_form.hidden_tag() }}
+                {{ render_field_with_errors(register_user_form.email, label_name='ایمیل',
+                              div_class='form-outline',
+                              label_class='form-label', class='form-control mb-2',
+                              ul_class='list-group', li_class='list-group-item list-group-item-danger') }}
+                {% if security.username_enable %}
+                    {{ render_field_with_errors(register_user_form.username, label_name='نام کاربری',
+                              div_class='form-outline',
+                              label_class='form-label', class='form-control mb-2',
+                              ul_class='list-group', li_class='list-group-item list-group-item-danger') }}
+                {% endif %}
+                {{ render_field_with_errors(register_user_form.password, label_name='رمز عبور',
+                              div_class='form-outline',
+                              label_class='form-label', class='form-control mb-2',
+                              ul_class='list-group', li_class='list-group-item list-group-item-danger') }}
+                {% if register_user_form.password_confirm %}
+                    {{ render_field_with_errors(register_user_form.password_confirm, label_name='تکرار رمز عبور',
+                              div_class='form-outline',
+                              label_class='form-label', class='form-control mb-2',
+                              ul_class='list-group', li_class='list-group-item list-group-item-danger') }}
+                {% endif %}
+                <div class="row gx-0">
+                    <div class="col-6 pe-1">
+                        <input class="btn btn-primary btn-block" style="min-width: 1px!important;" id="submit"
+                               name="submit"
+                               type="submit" value="ثبت نام">
+                    </div>
+                    <div class="col-6 ps-1">
+                        <a class="btn btn-outline-primary btn-block" style="min-width: 1px!important;"
+                           data-mdb-ripple-color="dark" href="{{ url_for_security('login') }}">ورود</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="theme-color" content="#291f52">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{ url_for('static', filename='css/mdb.rtl.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font_awesome/all.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='fonts/Yekan.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='fonts/Shabnam.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    {% block header_content %}
+    {% endblock %}
+</head>
+<body style="background: rgb(228,228,228);">
+
+{% include "base/components/site_navbar.html" %}
+
+<div class="container-fluid {% block container_attrs %}p-0 m-0{% endblock container_attrs %}" style="min-height: 100vh;">
+    {% block contents %}{% endblock %}
+</div>
+
+{% include "base/components/site_footer.html" %}
+<script src="{{ url_for('static', filename='js/mdb.min.js') }}"></script>
+</body>
+</html>

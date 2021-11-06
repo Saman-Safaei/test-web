@@ -1,0 +1,23 @@
+{% macro generate_pagination(posts_info, page_numbers) %}
+    <nav class="mt-3">
+        <ul class="pagination pagination-sm justify-content-center">
+            <li class="page-item {% if posts_info.page<=1 %}disabled{% endif %}"><a
+                    class="page-link link-primary"
+                    {% if posts_info.page| int<=1 %}aria-disabled="true" {% endif %}
+                    href="?p={{ posts_info.prev_num }}">قبلی</a></li>
+            {% for page_number in page_numbers %}
+                {% if page_number == posts_info.page %}
+                    <li class="page-item active"><a style="background-color: #291f52;"
+                                                    class="page-link link-primary">{{ page_number }}</a></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link link-primary"
+                                             href="?p={{ page_number }}">{{ page_number }}</a></li>
+                {% endif %}
+            {% endfor %}
+            <li class="page-item {% if posts_info.page>=posts_info.pages %}disabled{% endif %}"><a
+                    class="page-link link-primary"
+                    {% if posts_info.page| int<=1 %}aria-disabled="true" {% endif %}
+                    href="?p={{ posts_info.next_num }}">بعدی</a></li>
+        </ul>
+    </nav>
+{% endmacro %}

@@ -1,0 +1,26 @@
+{% macro generate_my_posts(my_posts_verified, my_posts_not_verified) %}
+    <h2 class="h2">مطالب من</h2>
+    {% if my_posts_verified|length > 0 %}
+        <h5>- تایید شده</h5>
+        <ul class="list-group mb-3">
+            {% for my_post_verified in my_posts_verified %}
+                <a href="{{ url_for('site.post', post_id=my_post_verified.get_id) }}"
+                   class="list-group-item list-group-item-info list-group-item-action">{{ my_post_verified.title }}</a>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if my_posts_not_verified|length > 0 %}
+        <h5>- در انتظار تایید</h5>
+        <ul class="list-group mb-3">
+            {% for my_post_not_verified in my_posts_not_verified %}
+                <a href="{{ url_for('users.demo_post', post_id=my_post_not_verified.get_id) }}"
+                   class="list-group-item list-group-item-warning list-group-item-action">{{ my_post_not_verified.title }}</a>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if my_posts_not_verified|length <= 0 and my_posts_verified|length <= 0 %}
+        <img class="img-fluid d-block mx-auto mb-3" src="{{ url_for('static', filename='img/empty_icon.png') }}"
+             alt="empty_icon" style="height: 150px;">
+        <p class="text-center">هنوز هیچ مطلبی ایجاد نشده</p>
+    {% endif %}
+{% endmacro %}

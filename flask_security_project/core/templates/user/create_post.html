@@ -1,0 +1,32 @@
+{% extends "base/pages/user_base_with_navbar.html" %}
+{% block title %}ایجاد مطلب جدید{% endblock %}
+
+{% block container_attrs %}p-4 m-0{% endblock %}
+{% block contents %}
+    <form method="post" class="bg-light border-radius-8px p-4" enctype="multipart/form-data">
+        {{ data.get('form').hidden_tag() }}
+        <div class="mb-2">
+            {{ data.get('form').title_field.label(class='form-label') }}
+            {{ data.get('form').title_field(class='form-control') }}
+        </div>
+        <div class="mb-2">
+            {{ data.get('form').picture_field.label(class='form-label') }}
+            {{ data.get('form').picture_field(class='form-control', accept='.png,.jpg') }}
+        </div>
+        <div class="mb-2">
+            {{ data.get('form').categories.label(class='form-label') }}
+            {{ data.get('form').categories(class='form-control') }}
+        </div>
+        <div class="mb-2">
+            {{ data.get('form').short_body_text.label(class='form-label') }}
+            {{ data.get('form').short_body_text(class='form-control') }}
+        </div>
+        <div class="mb-4">
+            {{ data.get('form').full_body_text.label(class='form-label') }}
+            {{ data.get('form').full_body_text(class='form-control', rows='10') }}
+        </div>
+        <div>
+            {{ data.get('form').submit_field(class='btn btn-outline-primary') }}
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base/pages/base_empty.html" %}
+
+{% block title %}404 - Page Not Found !{% endblock %}
+
+{% block container_styles %}
+    style="background-image: url('{{ url_for("static", filename="img/purple_space_back.jpg") }}');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;"
+{% endblock %}
+{% block contents %}
+    <div class="row gx-0 h-100 justify-content-center align-items-center px-3" >
+        <div class="col-auto py-5 px-3 border-radius-16px" style="background-color: rgba(0,0,0,0.49)">
+            <img class="mb-4 d-block m-auto" src="{{ url_for('static', filename='img/error_404_icon.png') }}" alt="404_error_icon">
+            <h4 class="text-center text-white mb-3" style="font-weight: bold;">صفحه مورد نظر پیدا نشد !</h4>
+            <p class="text-center text-white">صفحه ای که به دنبال آن می گردید ممکن جا به جا شده یا حذف شده باشد یا موقتا در دسترس نمی باشد</p>
+        </div>
+    </div>
+{% endblock %}

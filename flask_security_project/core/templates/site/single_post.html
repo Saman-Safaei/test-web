@@ -1,0 +1,22 @@
+{% extends "base/pages/site_base_with_footer_navbar.html" %}
+
+{% from "base/generators/g_site_post_page.html" import generate_post_page %}
+{% from "base/generators/g_site_last_posts.html" import generate_last_posts_card %}
+
+{% block header_content %}
+    <meta name="description" content="{{ data.get('post_info').short_body_text }}">
+{% endblock %}
+{% block title %}FlaskFa - {{ data.get('post_info').title }}{% endblock %}
+{% block container_attrs %}p-2 m-0{% endblock %}
+{% block contents %}
+    <div class="row gx-0 p-0">
+        <div class="col-md-8 p-2">
+            <div class="row gx-0">
+                {{ generate_post_page(data.get('post_info')) }}
+            </div>
+        </div>
+        <div class="col-md-4 p-2">
+            {{ generate_last_posts_card(last_posts) }}
+        </div>
+    </div>
+{% endblock %}

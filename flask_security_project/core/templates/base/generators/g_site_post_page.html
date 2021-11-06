@@ -1,0 +1,20 @@
+{% macro generate_post_page(post_info) %}
+    <div class="col-12">
+        <div class="card shadow-sm card-mb h-100">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img loading="lazy" src="{{ url_for('site.uploads', filename=post_info.img_name) }}"
+                     alt="{{ post_info.title }}"
+                     class="img-fluid"/>
+                <a href="#">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body p-3">
+                <h5 class="card-title text-center h5">{{ post_info.title }}</h5>
+                <h6 class="text-muted text-center mb-3 h6"
+                    style="font-weight: bold;font-size: 13px;">{{ post_info.subtitle }}</h6>
+                <div class="card-text">{{ post_info.full_body_text | safe }}</div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

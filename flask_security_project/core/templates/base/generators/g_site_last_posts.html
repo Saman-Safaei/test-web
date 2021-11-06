@@ -1,0 +1,13 @@
+{% macro generate_last_posts_card(last_posts) %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="h4">آخرین مطالب :</h4>
+            <div class="list-group list-group-flush">
+                {% for last_post in last_posts %}
+                    <a class="list-group-item list-group-item-action"
+                       href="{{ url_for('site.post', post_id=last_post.get_id) }}">{{ last_post.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endmacro %}

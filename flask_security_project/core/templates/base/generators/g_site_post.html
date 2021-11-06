@@ -1,0 +1,25 @@
+{% macro generate_posts(posts_info) %}
+    {% for post_info in posts_info.items %}
+        <div class="col-sm-6 col-md-6 col-xl-4 p-2">
+            <div class="card shadow-sm card-mb w-auto h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img loading="lazy" src="{{ url_for('site.uploads', filename=post_info.img_name) }}"
+                         alt="{{ post_info.title }}"
+                         class="img-fluid"/>
+                    <a href="{{ url_for('site.post', post_id=post_info.get_id) }}">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                </div>
+                <div class="card-body p-3">
+                    <h5 class="card-title h5">{{ post_info.title }}</h5>
+                    <h6 class="text-muted mb-3 h6" style="font-weight: bold;font-size: 13px;">{{ post_info.subtitle }}</h6>
+                    <p class="card-text">{{ post_info.short_body_text }}</p>
+
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('site.post', post_id=post_info.get_id) }}" class="btn btn-rounded btn-sm btn-outline-primary" data-mdb-ripple-color="dark">ادامه مطلب</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endmacro %}

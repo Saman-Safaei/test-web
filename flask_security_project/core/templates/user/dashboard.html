@@ -1,0 +1,10 @@
+{% extends "base/pages/user_base_with_navbar.html" %}
+{% block title %}داشبورد - {{ current_user.username }}{% endblock %}
+
+{% from "base/generators/g_user_myposts.html" import generate_my_posts %}
+
+{% block container_attrs %}p-4 m-0{% endblock %}
+{% block contents %}
+    {{ generate_my_posts(data.get('my_posts_verified'), data.get('my_posts_not_verified')) }}
+    {% include "base/components/user_bottom_profile_control.html" %}
+{% endblock %}

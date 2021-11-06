@@ -1,0 +1,8 @@
+{% extends "base/pages/base_empty.html" %}
+
+{% block title %}FlaskFa - About Me{% endblock %}
+
+{% block container_attrs %}p-4 m-0 vh-100{% endblock %}
+{% block contents %}
+ {{ data.get("text") }}
+{% endblock %}
